@@ -1,0 +1,12 @@
+#pragma once
+
+#include "Cxx/gui/AbstractButton/AbstractButton.h"
+
+namespace Cxx {
+namespace gui {
+
+class PushButton: public AbstractButton {
+};
+
+}
+}
