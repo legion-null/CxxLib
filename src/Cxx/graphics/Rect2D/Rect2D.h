@@ -28,6 +28,14 @@ public:
 	Rect2D& copy(const Rect2D &other);
 	Rect2D& move(Rect2D &&other);
 
+public:
+	i32 getWidth() const;
+	i32 getHeight() const;
+
+public:
+	void setWidth(i32 width);
+	void setHeight(i32 height);
+
 };
 
 }
