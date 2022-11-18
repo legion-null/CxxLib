@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Cxx/graphics/AbstractShape2D/AbstractShape2D.h"
+#include "Cxx/graphics/Shape2D/Shape2D.h"
 
 namespace Cxx {
 namespace graphics {
 
-class Rect2D: extends AbstractShape2D {
+class Rect2D: extends Shape2D {
 CXX_OBJECT_DEF(Rect2D)
 
 protected:
@@ -32,9 +32,17 @@ public:
 	i32 getWidth() const;
 	i32 getHeight() const;
 
+	void getSize(i32 &width,i32 &height) const;
+
 public:
 	void setWidth(i32 width);
 	void setHeight(i32 height);
+
+	void setSize(i32 width,i32 height);
+
+public:
+	virtual f32 getArea() override;
+
 
 };
 

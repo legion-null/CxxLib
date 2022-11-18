@@ -1,6 +1,5 @@
 #pragma once
 
-#include "AbstractShape2D/AbstractShape2D.h"
 
 #include "Canvas/Canvas.h"
 
@@ -17,6 +16,8 @@
 #include "Point2D/Point2D.h"
 
 #include "Point3D/Point3D.h"
+
+#include "Shape2D/Shape2D.h"
 
 #include "Rect2D/Rect2D.h"
 

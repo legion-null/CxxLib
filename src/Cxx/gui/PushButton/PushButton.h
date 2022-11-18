@@ -5,7 +5,7 @@
 namespace Cxx {
 namespace gui {
 
-class PushButton: public AbstractButton {
+class PushButton: extends AbstractButton {
 };
 
 }

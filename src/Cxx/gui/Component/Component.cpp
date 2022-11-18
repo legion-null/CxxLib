@@ -4,9 +4,13 @@ import Cxx;
 import Cxx::base;
 import Cxx::dev;
 
+import Cxx::graphics;
+
 namespace Cxx {
 namespace gui {
 CXX_OBJECT_REALIZATION(Cxx::gui::Component)
+
+Style* Component::CurrentDefaultStyle = nullptr;
 
 Component& Component::init() {
 	return self;
@@ -14,6 +18,11 @@ Component& Component::init() {
 
 void Component::remove() {
 
+}
+
+Component& Component::init(i32 x, i32 y, i32 width, i32 height) {
+	outRect.init(x, y, width, height);
+	return self;
 }
 
 Component& Component::copy(const Component &other) {
@@ -25,55 +34,59 @@ Component& Component::move(Component &&other) {
 }
 
 i32 Component::getX() const {
-	return x;
+	return outRect.getX();
 }
 
 i32 Component::getY() const {
-	return y;
+	return outRect.getY();
 }
 
-void Component::getXY(i32 &x, i32 &y) const {
-	x = this->x;
-	y = this->y;
+void Component::getPos(i32 &x, i32 &y) const {
+	outRect.getPos(x, y);
 }
 
 void Component::setX(i32 x) {
-	this->x = x;
+	outRect.setX(x);
 }
 
 void Component::setY(i32 y) {
-	this->y = y;
+	outRect.setY(y);
 }
 
-void Component::setXY(i32 x, i32 y) {
-	this->x = x;
-	this->y = y;
+void Component::setPos(i32 x, i32 y) {
+	outRect.setPos(x, y);
 }
 
 i32 Component::getWidth() const {
-	return width;
+	return outRect.getWidth();
 }
 
 i32 Component::getHeight() const {
-	return height;
+	return outRect.getHeight();
 }
 
 void Component::getSize(i32 &width, i32 &height) const {
-	width = this->width;
-	height = this->height;
+	outRect.getSize(width, height);
 }
 
 void Component::setWidth(i32 width) {
-	this->width = width;
+	outRect.setWidth(width);
 }
 
 void Component::setHeight(i32 height) {
-	this->height = height;
+	outRect.setHeight(height);
 }
 
 void Component::setSize(i32 width, i32 height) {
-	this->width = width;
-	this->height = height;
+	outRect.setSize(width, height);
+}
+
+Rect2D& Component::getOutRect() {
+	return outRect;
+}
+
+void Component::setOutRect(graphics::Rect2D &rect) {
+	outRect.copy(rect);
 }
 
 Component* Component::getParent() const {
@@ -82,6 +95,9 @@ Component* Component::getParent() const {
 
 void Component::setParent(Component *parent) {
 	this->parent = parent;
+}
+
+void Component::paint(graphics::Graphics2D *g2d) {
 }
 
 }

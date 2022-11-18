@@ -47,7 +47,6 @@ public:\
 // 声明
 #define CXX_ABSTRACT_OBJECT_DEF(CLASS) \
 
-
 // 实现
 #define	CXX_ABSTRACT_OBJECT_REALIZATION(CLASS)
 
