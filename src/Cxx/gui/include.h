@@ -11,5 +11,3 @@
 #include "GuiApplication/GuiApplication.h"
 
 #include "Style/Style.h"
-
-#include "UI/UI.h"

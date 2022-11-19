@@ -5,6 +5,8 @@
 #include "Cxx/graphics/Color/Color.h"
 #include "Cxx/graphics/Canvas/Canvas.h"
 
+#include "Cxx/graphics/Rect2D/Rect2D.h"
+
 namespace Cxx {
 namespace graphics {
 
@@ -54,6 +56,8 @@ public:
 	void drawLine(i32 x0, i32 y0, i32 x1, i32 y1);
 
 	void drawRect(i32 x0, i32 y0, i32 width, i32 height);
+	void drawRect(const Rect2D &rect);
+
 	void drawTriangle(i32 x0, i32 y0, i32 x1, i32 y1, i32 x2, i32 y2);
 	void drawPolyline(i32 x[], i32 y[], i32 n);
 	void drawPolygon(i32 x[], i32 y[], i32 n);
@@ -70,6 +74,8 @@ public:
 
 public:
 	void fillRect(i32 x0, i32 y0, i32 width, i32 height);
+	void fillRect(const Rect2D &rect);
+
 	void fillTriangle(i32 x0, i32 y0, i32 x1, i32 y1, i32 x2, i32 y2);
 	void fillPolygon(i32 x[], i32 y[], i32 n);
 

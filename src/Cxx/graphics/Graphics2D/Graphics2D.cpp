@@ -108,10 +108,12 @@ void Graphics2D::setColor(const Color &color) {
 }
 
 Color Graphics2D::getPoint(i32 x0, i32 y0) {
+	Log::Print(Log::DebugLog, "Color Graphics2D::getPoint(%d, %d)\n", x0, y0);
 	return this->canvas->getPoint(x0, y0);
 }
 
 void Graphics2D::drawPoint(i32 x0, i32 y0) {
+	Log::Print(Log::DebugLog, "Color Graphics2D::drawPoint(%d, %d)\n", x0, y0);
 	this->canvas->drawPoint(x0, y0, this->color);
 }
 
@@ -158,6 +160,10 @@ void Graphics2D::drawRect(i32 x0, i32 y0, i32 width, i32 height) {
 	drawLine(x0, y0, x0, y1);
 	drawLine(x1, y0, x1, y1);
 	drawLine(x0, y1, x1, y1);
+}
+
+void Graphics2D::drawRect(const Rect2D &rect) {
+	drawRect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
 }
 
 void Graphics2D::drawTriangle(i32 x0, i32 y0, i32 x1, i32 y1, i32 x2, i32 y2) {
@@ -336,6 +342,10 @@ void Graphics2D::fillRect(i32 x0, i32 y0, i32 width, i32 height) {
 	i32 y1 = y0 + height - 1;
 	for (i32 y = y0; y <= y1; y++)
 		drawLine(x0, y, x1, y);
+}
+
+void Graphics2D::fillRect(const Rect2D &rect) {
+	fillRect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
 }
 
 void Graphics2D::fillTriangle(i32 x0, i32 y0, i32 x1, i32 y1, i32 x2, i32 y2) {

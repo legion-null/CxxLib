@@ -18,6 +18,8 @@ void Rect2D::remove() {
 
 Rect2D& Rect2D::init(i32 x, i32 y, i32 width, i32 height) {
 	Shape2D::init();
+	setPos(x, y);
+	setSize(width, height);
 	return self;
 }
 

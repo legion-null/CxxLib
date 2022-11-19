@@ -79,7 +79,7 @@ public:
 	void setSize(i32 width, i32 height);
 
 public:
-	graphics::Rect2D& getOutRect();
+	const graphics::Rect2D& getOutRect() const;
 
 public:
 	void setOutRect(graphics::Rect2D &rect);

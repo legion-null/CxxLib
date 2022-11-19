@@ -10,9 +10,10 @@ namespace Cxx {
 namespace gui {
 CXX_OBJECT_REALIZATION(Cxx::gui::Component)
 
-Style* Component::CurrentDefaultStyle = nullptr;
+Style *Component::CurrentDefaultStyle = nullptr;
 
 Component& Component::init() {
+	this->style = new Style_Base(this);
 	return self;
 }
 
@@ -21,6 +22,8 @@ void Component::remove() {
 }
 
 Component& Component::init(i32 x, i32 y, i32 width, i32 height) {
+	this->style = new Style_Base(this);
+
 	outRect.init(x, y, width, height);
 	return self;
 }
@@ -81,7 +84,7 @@ void Component::setSize(i32 width, i32 height) {
 	outRect.setSize(width, height);
 }
 
-Rect2D& Component::getOutRect() {
+const Rect2D& Component::getOutRect() const {
 	return outRect;
 }
 
@@ -98,6 +101,10 @@ void Component::setParent(Component *parent) {
 }
 
 void Component::paint(graphics::Graphics2D *g2d) {
+	if (this->style == nullptr)
+		throw Exception();
+
+	style->paint(g2d);
 }
 
 }

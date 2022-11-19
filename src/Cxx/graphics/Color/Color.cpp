@@ -64,10 +64,12 @@ Color& Color::init(i32 data, Type type) {
 }
 
 Color& Color::copy(const Color &other) {
+	this->data = other.data;
 	return self;
 }
 
 Color& Color::move(Color &&other) {
+	this->data = other.data;
 	return self;
 }
 
